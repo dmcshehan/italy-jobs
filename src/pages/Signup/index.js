@@ -1,12 +1,12 @@
 import React from "react";
-
 import { Layout } from "@containers";
-import Hero from "./Hero/";
 
-export default function Home() {
+import SignupForm from "./SignupForm/";
+
+export default function Signup() {
   return (
     <Layout>
-      <Hero />
+      <SignupForm />
     </Layout>
   );
 }

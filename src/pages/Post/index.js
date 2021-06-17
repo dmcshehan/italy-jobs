@@ -1,8 +1,12 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
 
 import { PostForm } from "@components";
+import { Container } from "@containers";
 
 export default function Post() {
-  return <PostForm />;
+  return (
+    <Container>
+      <PostForm />
+    </Container>
+  );
 }

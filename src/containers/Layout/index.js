@@ -1,10 +1,11 @@
 import React from "react";
-import Header from "../../components/Header/";
+import { NavBar } from "@components";
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <div>
-      <Header></Header>
+      <NavBar />
+      {children}
     </div>
   );
 }
