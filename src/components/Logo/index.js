@@ -1,11 +1,12 @@
 import React from "react";
+import { Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import logo_black from "@images/logo_black.png";
+import logo_black from "@images/logo.png";
 
-export default function Logo() {
+export default function Logo({ props }) {
   return (
     <Link to="/">
-      <img src={logo_black} alt="Logo Black" />
+      <Image src={logo_black} alt="Logo Black" w="130px" {...props} />
     </Link>
   );
 }

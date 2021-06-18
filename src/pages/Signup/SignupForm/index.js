@@ -20,10 +20,12 @@ import { Container } from "@containers";
 
 import { auth, authProviders } from "@fire";
 
+const { GoogleAuthProvider, FacebookAuthProvider } = authProviders;
+
 export default function SignupForm() {
-  const signup = () => {
+  const signup = (provider) => {
     auth
-      .signInWithPopup(authProviders.GoogleAuthProvider)
+      .signInWithPopup(provider)
       .then(({ user }) => {
         console.log(user);
       })
@@ -59,8 +61,12 @@ export default function SignupForm() {
                   direction={{ base: "column", sm: "row" }}
                   justify="space-between"
                 >
-                  <GoogleButton onClick={signup}>Google</GoogleButton>
-                  <FacebookButton>Facebook</FacebookButton>
+                  <GoogleButton onClick={() => signup(GoogleAuthProvider)}>
+                    Google
+                  </GoogleButton>
+                  <FacebookButton onClick={() => signup(FacebookAuthProvider)}>
+                    Facebook
+                  </FacebookButton>
                 </Stack>
                 <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
                   or

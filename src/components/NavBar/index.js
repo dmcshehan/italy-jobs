@@ -34,7 +34,7 @@ export default function NavBar() {
               fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
             >
-              <Logo />
+              <Logo boxSize="100px" />
             </Text>
             <DesktopNav />
           </Flex>
