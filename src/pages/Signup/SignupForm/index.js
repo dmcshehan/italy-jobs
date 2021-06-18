@@ -15,12 +15,9 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { GoogleButton, FacebookButton } from "@components";
-import { Container } from "@containers";
+import { Container, SocialAuth } from "@containers";
 
-import { auth, authProviders } from "@fire";
-
-const { GoogleAuthProvider, FacebookAuthProvider } = authProviders;
+import { auth } from "@fire";
 
 export default function SignupForm() {
   const signup = (provider) => {
@@ -57,17 +54,7 @@ export default function SignupForm() {
                 <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
                   with your social network
                 </Text>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  justify="space-between"
-                >
-                  <GoogleButton onClick={() => signup(GoogleAuthProvider)}>
-                    Google
-                  </GoogleButton>
-                  <FacebookButton onClick={() => signup(FacebookAuthProvider)}>
-                    Facebook
-                  </FacebookButton>
-                </Stack>
+                <SocialAuth />
                 <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
                   or
                 </Text>

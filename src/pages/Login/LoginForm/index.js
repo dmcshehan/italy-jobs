@@ -18,7 +18,7 @@ import {
 
 import { GoogleButton, FacebookButton } from "@components";
 
-import { Container } from "@containers";
+import { Container, SocialAuth } from "@containers";
 
 export default function LoginForm() {
   return (
@@ -44,13 +44,7 @@ export default function LoginForm() {
                 <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
                   with your social network
                 </Text>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  justify="space-between"
-                >
-                  <GoogleButton>Google</GoogleButton>
-                  <FacebookButton>Facebook</FacebookButton>
-                </Stack>
+                <SocialAuth />
                 <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
                   or
                 </Text>
