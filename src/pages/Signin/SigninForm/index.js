@@ -29,7 +29,7 @@ export default function SignupForm() {
       <Container>
         <Stack spacing={8} maxW={"lg"} mx={"auto"}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"}>Create your account</Heading>
+            <Heading fontSize={"4xl"}>Login to your account</Heading>
           </Stack>
           <Box
             rounded={"lg"}
@@ -60,8 +60,16 @@ export default function SignupForm() {
                   <FormLabel>Password</FormLabel>
                   <Input type="password" />
                 </FormControl>
-
-                <Button colorScheme={"teal"}>Signup</Button>
+                <Stack spacing={10}>
+                  <Stack
+                    direction={{ base: "column", sm: "row" }}
+                    justify="space-between"
+                  >
+                    <Checkbox>Remember me</Checkbox>
+                    <Link color={"blue.400"}>Forgot password?</Link>
+                  </Stack>
+                </Stack>
+                <Button colorScheme={"teal"}>Login</Button>
               </Stack>
             </form>
           </Box>

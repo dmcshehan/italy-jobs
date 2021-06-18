@@ -18,7 +18,7 @@ export default function DesktopNav() {
           variant={"link"}
           to="/signin"
         >
-          Sign In
+          Login
         </Button>
 
         <Button

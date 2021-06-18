@@ -1,6 +1,11 @@
 import React from "react";
 import { Layout } from "@containers";
+import SigninForm from "./SigninForm/";
 
 export default function Signin() {
-  return <Layout>Signin</Layout>;
+  return (
+    <Layout>
+      <SigninForm />
+    </Layout>
+  );
 }
