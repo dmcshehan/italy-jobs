@@ -1,11 +1,11 @@
 import React from "react";
 import { Layout } from "@containers";
-import SigninForm from "./SigninForm/";
+import LoginForm from "./LoginForm";
 
 export default function Signin() {
   return (
     <Layout>
-      <SigninForm />
+      <LoginForm />
     </Layout>
   );
 }

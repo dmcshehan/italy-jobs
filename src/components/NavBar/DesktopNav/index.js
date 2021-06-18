@@ -16,7 +16,7 @@ export default function DesktopNav() {
           fontSize={"sm"}
           fontWeight={400}
           variant={"link"}
-          to="/signin"
+          to="/login"
         >
           Login
         </Button>

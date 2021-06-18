@@ -18,7 +18,7 @@ import { GoogleButton, FacebookButton } from "@components";
 
 import { Container } from "@containers";
 
-export default function SignupForm() {
+export default function LoginForm() {
   return (
     <Flex
       minH={"calc(100vh - 60px)"}

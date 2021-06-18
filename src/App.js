@@ -9,7 +9,7 @@ import "@fontsource/inter";
 
 import Home from "./pages/Home";
 import Post from "./pages/Post";
-import Signin from "./pages/Signin";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/post" component={Post} />
-            <Route exact path="/signin" component={Signin} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
           </Switch>
         </div>
