@@ -3,7 +3,7 @@ import { Button, Text, Center } from "@chakra-ui/react";
 
 import { FaFacebook } from "react-icons/fa";
 
-export default function FacebookButton({ children }) {
+export default function FacebookButton({ children, ...restProps }) {
   return (
     <Button
       w={"full"}
@@ -11,6 +11,7 @@ export default function FacebookButton({ children }) {
       variant={"outline"}
       colorScheme={"facebook"}
       leftIcon={<FaFacebook />}
+      {...restProps}
     >
       <Center>
         <Text>{children}</Text>

@@ -1,24 +1,37 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+
 import {
   FormControl,
   FormLabel,
   Input,
   Stack,
   Button,
-  Checkbox,
-  Link,
   Box,
   Flex,
   Heading,
   Text,
+  Link,
   useColorModeValue,
 } from "@chakra-ui/react";
 
 import { GoogleButton, FacebookButton } from "@components";
-
 import { Container } from "@containers";
 
+import { auth, authProviders } from "@fire";
+
 export default function SignupForm() {
+  const signup = () => {
+    auth
+      .signInWithPopup(authProviders.GoogleAuthProvider)
+      .then(({ user }) => {
+        console.log(user);
+      })
+      .catch(({ message }) => {
+        console.log(message);
+      });
+  };
+
   return (
     <Flex
       minH={"calc(100vh - 60px)"}
@@ -46,7 +59,7 @@ export default function SignupForm() {
                   direction={{ base: "column", sm: "row" }}
                   justify="space-between"
                 >
-                  <GoogleButton>Google</GoogleButton>
+                  <GoogleButton onClick={signup}>Google</GoogleButton>
                   <FacebookButton>Facebook</FacebookButton>
                 </Stack>
                 <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
@@ -62,6 +75,12 @@ export default function SignupForm() {
                 </FormControl>
 
                 <Button colorScheme={"teal"}>Signup</Button>
+                <Text fontSize={"sm"} color={"gray.600"} textAlign="center">
+                  Already have an account?{" "}
+                  <Link as={RouterLink} to="/login">
+                    Login
+                  </Link>
+                </Text>
               </Stack>
             </form>
           </Box>

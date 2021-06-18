@@ -1,4 +1,6 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+
 import {
   FormControl,
   FormLabel,
@@ -66,10 +68,16 @@ export default function LoginForm() {
                     justify="space-between"
                   >
                     <Checkbox>Remember me</Checkbox>
-                    <Link color={"blue.400"}>Forgot password?</Link>
+                    <Link>Forgot password?</Link>
                   </Stack>
                 </Stack>
                 <Button colorScheme={"teal"}>Login</Button>
+                <Text textAlign={"center"} fontSize={"sm"}>
+                  Not a member?{" "}
+                  <Link as={RouterLink} to="signup">
+                    Signup
+                  </Link>
+                </Text>
               </Stack>
             </form>
           </Box>

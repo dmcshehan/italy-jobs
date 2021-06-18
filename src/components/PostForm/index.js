@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Button, Input, Textarea, Select } from "@chakra-ui/react";
 
-import { db } from "../../firebase.config";
+import { firestore } from "../../firebase.config";
 
 const categories = [
   {
@@ -27,7 +27,8 @@ export default function PostForm() {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    db.collection(category)
+    firestore
+      .collection(category)
       .add({
         title,
         description,

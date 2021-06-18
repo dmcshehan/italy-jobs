@@ -8,6 +8,13 @@ const config = {
     heading: "Work Sans",
     body: "Inter",
   },
+  components: {
+    Link: {
+      baseStyle: {
+        color: "blue.400",
+      },
+    },
+  },
 };
 
 const theme = extendTheme({ ...config });
