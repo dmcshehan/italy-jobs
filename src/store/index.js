@@ -8,17 +8,10 @@ import { persistReducer } from "redux-persist";
 import { firebaseReducer } from "react-redux-firebase";
 import { firestoreReducer } from "redux-firestore"; // <- needed if using firestore
 
-//custom reducers
-import { notificationReducer } from "@store/slices";
-
-//import authReducer from "./slices/auth";
-
 // Add firebase to reducers
 const appReducer = combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer, // <- needed if using firestore
-  notification: notificationReducer,
-  // AddQuestionForm: AddQuestionFormReducer,
 });
 
 const rootReducer = (state, action) => {

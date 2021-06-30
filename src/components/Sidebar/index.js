@@ -1,5 +1,4 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { Image, Text, Box, VStack, Divider } from "@chakra-ui/react";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack } from "@chakra-ui/react";
+import { Stack, Box } from "@chakra-ui/react";
 
 import { Container } from "@containers";
 import { Sidebar } from "@components";
@@ -9,7 +9,7 @@ const WidthSidebar = ({ children }) => {
     <Container>
       <Stack direction={{ base: "row" }}>
         <Sidebar />
-        <div>{children}</div>
+        <Box py={4}>{children}</Box>
       </Stack>
     </Container>
   );

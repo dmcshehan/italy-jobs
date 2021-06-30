@@ -16,6 +16,8 @@ import {
   Link,
 } from "@chakra-ui/react";
 
+import { FaCaretDown } from "react-icons/fa";
+
 export default function DesktopNav() {
   const auth = useSelector((state) => state.firebase.auth);
   const firebase = useFirebase();
@@ -48,20 +50,22 @@ export default function DesktopNav() {
           </>
         )}
         {!isEmpty(auth) && (
-          <Menu>
-            <MenuButton>
+          <Menu placement="bottom-end" gutter={2}>
+            <MenuButton as={Button} rightIcon={<FaCaretDown />} variant="link">
               <Avatar size={"sm"} src={auth.photoURL} />
             </MenuButton>
-            <MenuList>
-              <MenuGroup title="Profile">
-                <MenuItem
-                  onClick={() => {
-                    firebase.logout();
-                  }}
-                >
-                  Logout
-                </MenuItem>
-              </MenuGroup>
+            <MenuList fontSize="sm" minW="150px">
+              <MenuItem py={1} as={RouterLink} to="/profile">
+                Your Profile
+              </MenuItem>
+              <MenuItem
+                py={1}
+                onClick={() => {
+                  firebase.logout();
+                }}
+              >
+                Logout
+              </MenuItem>
             </MenuList>
           </Menu>
         )}
