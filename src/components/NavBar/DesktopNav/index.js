@@ -1,37 +1,70 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Button, Stack, Box } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { useFirebase, isEmpty } from "react-redux-firebase";
+
+import { Link as RouterLink } from "react-router-dom";
+import {
+  Button,
+  Stack,
+  Box,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuGroup,
+  Avatar,
+  Link,
+} from "@chakra-ui/react";
 
 export default function DesktopNav() {
+  const auth = useSelector((state) => state.firebase.auth);
+  const firebase = useFirebase();
+
+  console.log(auth.photoURL);
+
   return (
     <Box w="100%">
       <Stack
-        flex={{ base: 1, md: 0 }}
         justify={"flex-end"}
         direction={"row"}
+        align={"center"}
         spacing={6}
       >
-        <Button
-          as={Link}
-          fontSize={"sm"}
-          fontWeight={400}
-          variant={"link"}
-          to="/login"
-        >
-          Login
-        </Button>
+        {isEmpty(auth) && (
+          <>
+            <Button as={RouterLink} size={"sm"} variant={"link"} to="/login">
+              Login
+            </Button>
 
-        <Button
-          as={Link}
-          display={{ base: "none", md: "inline-flex" }}
-          fontSize={"sm"}
-          fontWeight={600}
-          variant={"solid"}
-          colorScheme={"teal"}
-          to={"/signup"}
-        >
-          Sign Up
-        </Button>
+            <Button
+              as={Link}
+              size={"sm"}
+              variant={"outline"}
+              colorScheme={"whatsapp"}
+              to={"/signup"}
+            >
+              Sign Up
+            </Button>
+          </>
+        )}
+        {!isEmpty(auth) && (
+          <Menu>
+            <MenuButton>
+              <Avatar size={"sm"} src={auth.photoURL} />
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title="Profile">
+                <MenuItem
+                  onClick={() => {
+                    firebase.logout();
+                  }}
+                >
+                  Logout
+                </MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+        )}
       </Stack>
     </Box>
   );

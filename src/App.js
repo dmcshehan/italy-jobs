@@ -7,10 +7,7 @@ import theme from "./theme";
 import "@fontsource/work-sans";
 import "@fontsource/inter";
 
-import Home from "./pages/Home";
-import Post from "./pages/Post";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import { Home, Profile, Login, Signup, NotFound } from "@pages";
 
 function App() {
   return (
@@ -19,9 +16,10 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/post" component={Post} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile" component={Profile} />
+            <Route path="/not_found" component={NotFound} />
           </Switch>
         </div>
       </ChakraProvider>

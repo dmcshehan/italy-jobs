@@ -1,81 +1,30 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Button,
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Link,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Stack, Box, Flex, Heading, Text, Link } from "@chakra-ui/react";
 
-import { Container, SocialAuth } from "@containers";
-
-import { auth } from "@fire";
+import { Container } from "@containers";
+import { AuthModule } from "@components";
 
 export default function SignupForm() {
-  const signup = (provider) => {
-    auth
-      .signInWithPopup(provider)
-      .then(({ user }) => {
-        console.log(user);
-      })
-      .catch(({ message }) => {
-        console.log(message);
-      });
-  };
-
   return (
-    <Flex
-      minH={"calc(100vh - 60px)"}
-      align={"center"}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-    >
+    <Flex minH={"calc(100vh - 60px)"} align={"center"} justify={"center"}>
       <Container>
-        <Stack spacing={8} maxW={"lg"} mx={"auto"}>
+        <Stack spacing={8} maxW={"sm"} mx={"auto"}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"}>Create your account</Heading>
+            <Heading fontSize={"2xl"}>Create your account</Heading>
           </Stack>
-          <Box
-            rounded={"lg"}
-            bg={useColorModeValue("white", "gray.700")}
-            boxShadow={"lg"}
-            p={8}
-          >
-            <form>
-              <Stack spacing={4}>
-                <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
-                  with your social network
-                </Text>
-                <SocialAuth />
-                <Text fontSize={"lg"} color={"gray.600"} textAlign="center">
-                  or
-                </Text>
-                <FormControl id="email">
-                  <FormLabel>Email address</FormLabel>
-                  <Input type="email" />
-                </FormControl>
-                <FormControl id="password">
-                  <FormLabel>Password</FormLabel>
-                  <Input type="password" />
-                </FormControl>
+          <Box rounded={"lg"} border="1px" borderColor="gray.300" p={8}>
+            <Stack spacing={4}>
+              <AuthModule />
 
-                <Button colorScheme={"teal"}>Signup</Button>
-                <Text fontSize={"sm"} color={"gray.600"} textAlign="center">
-                  Already have an account?{" "}
-                  <Link as={RouterLink} to="/login">
-                    Login
-                  </Link>
-                </Text>
-              </Stack>
-            </form>
+              <Text fontSize={"sm"} color={"gray.600"} textAlign="center">
+                Already have an account?{" "}
+                <Link as={RouterLink} to="/login">
+                  Login
+                </Link>
+              </Text>
+            </Stack>
           </Box>
         </Stack>
       </Container>

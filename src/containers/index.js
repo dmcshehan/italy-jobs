@@ -1,3 +1,3 @@
 export { default as Layout } from "./Layout/";
 export { default as Container } from "./Container/";
-export { default as SocialAuth } from "./SocialAuth/";
+export { default as WithSidebar } from "./WithSidebar/";

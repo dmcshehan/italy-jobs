@@ -3,7 +3,7 @@ import { Container } from "@chakra-ui/react";
 
 export default function ContainerComponent({ children, ...restProps }) {
   return (
-    <Container maxW="container.lg" {...restProps}>
+    <Container maxW="1280px" {...restProps}>
       {children}
     </Container>
   );

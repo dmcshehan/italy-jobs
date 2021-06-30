@@ -8,7 +8,7 @@ export default function FacebookButton({ children, ...restProps }) {
     <Button
       w={"full"}
       maxW={"md"}
-      variant={"outline"}
+      size={"sm"}
       colorScheme={"facebook"}
       leftIcon={<FaFacebook />}
       {...restProps}

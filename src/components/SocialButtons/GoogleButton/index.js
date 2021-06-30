@@ -6,10 +6,11 @@ import { FcGoogle } from "react-icons/fc";
 export default function GoogleButton({ children, ...restProps }) {
   return (
     <Button
+      size={"sm"}
       w={"full"}
       maxW={"md"}
-      variant={"outline"}
       leftIcon={<FcGoogle />}
+      variant="outline"
       {...restProps}
     >
       <Center>

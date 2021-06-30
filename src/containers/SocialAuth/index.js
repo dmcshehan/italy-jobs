@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Stack } from "@chakra-ui/react";
 
 import { GoogleButton, FacebookButton } from "@components";
@@ -7,6 +8,8 @@ import { auth, authProviders } from "@fire";
 const { GoogleAuthProvider, FacebookAuthProvider } = authProviders;
 
 export default function SocialAuth() {
+  const dispatch = useDispatch();
+
   const signup = (provider) => {
     auth
       .signInWithPopup(provider)

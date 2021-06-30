@@ -3,10 +3,14 @@ import { Layout } from "@containers";
 
 import SignupForm from "./SignupForm/";
 
-export default function Signup() {
+import { userIsNotAuthenticated } from "@hoc";
+
+const Signup = () => {
   return (
     <Layout>
       <SignupForm />
     </Layout>
   );
-}
+};
+
+export default userIsNotAuthenticated(Signup);
