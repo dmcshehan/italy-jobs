@@ -22,7 +22,7 @@ export default function DesktopNav() {
   const firebase = useFirebase();
 
   return (
-    <Box w="100%">
+    <Box w="100%" display={{ base: "none" }}>
       <Stack
         justify={"flex-end"}
         direction={"row"}

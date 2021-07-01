@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 import { Button } from "@chakra-ui/react";
 
-export default function MenuLink({ children, to }) {
+export default function MenuLink({ children, ...restProps }) {
   return (
     <Button
       size={"sm"}
@@ -11,7 +11,8 @@ export default function MenuLink({ children, to }) {
       colorScheme="blue"
       as={RouterLink}
       variant={"link"}
-      to={to}
+      color="black"
+      {...restProps}
     >
       {children}
     </Button>

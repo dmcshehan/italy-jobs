@@ -16,6 +16,7 @@ export default function Sidebar() {
       w={250}
       borderRight={"1px"}
       borderColor={"gray.300"}
+      display={{ base: "none" }}
     >
       <Image
         my={2}

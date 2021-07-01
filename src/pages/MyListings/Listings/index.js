@@ -2,14 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 
-import {
-  VStack,
-  Flex,
-  ButtonGroup,
-  IconButton,
-  Box,
-  Text,
-} from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 
 import { ControllableListingItem } from "@components";
 

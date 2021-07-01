@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import firebase from "@fire";
 
 import PhoneInput from "react-phone-input-2";
@@ -17,35 +17,29 @@ export default function PhoneAuth() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [codeSent, setCodeSent] = useState(false);
   const [code, setCode] = useState("");
-
   const [sendingCode, setSendingCode] = useState(false);
   const [verifyingCode, setVerifyingCode] = useState(false);
-
   const errorToast = useErrorToast();
 
-  useEffect(() => {
-    //const setuprecaptcha = () => {};
+  const sendCode = (event) => {
+    event.preventDefault();
+    setSendingCode(true);
+
+    if (window.recaptchaVerifier && window.recaptchaWrapperRef) {
+      window.recaptchaVerifier.clear();
+      window.recaptchaWrapperRef.innerHTML = `<div id="recaptcha_container"></div>`;
+    }
 
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "recaptcha_container",
       {
         size: "invisible",
-        callback: function (response) {
-          onSignInSubmit();
-        },
       }
     );
-  }, []);
-
-  const onSignInSubmit = (event) => {
-    event.preventDefault();
-    setSendingCode(true);
-
-    const appVerifier = window.recaptchaVerifier;
 
     firebase
       .auth()
-      .signInWithPhoneNumber(phoneNumber, appVerifier)
+      .signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
       .then((confirmationResult) => {
         setCodeSent(true);
         setSendingCode(false);
@@ -56,7 +50,7 @@ export default function PhoneAuth() {
       })
       .catch((error) => {
         // Error; SMS not sent
-        errorToast("Invalid phone number");
+        errorToast(error.message);
         setSendingCode(false);
       });
   };
@@ -71,7 +65,7 @@ export default function PhoneAuth() {
       })
       .catch((error) => {
         // bad verification code
-        errorToast("Incorrect Verification Code");
+        errorToast(error.message);
         setVerifyingCode(false);
       });
   };
@@ -82,7 +76,6 @@ export default function PhoneAuth() {
 
   return (
     <div>
-      <div id="recaptcha_container"></div>
       {/* if phone mobule is not in use show the phone button */}
 
       <Box rounded={"lg"} mb={4}>
@@ -98,6 +91,9 @@ export default function PhoneAuth() {
             width: "100%",
           }}
         />
+        <div ref={(ref) => (window.recaptchaWrapperRef = ref)}>
+          <div id="recaptcha_container"></div>
+        </div>
 
         {codeSent && (
           <NumberInput onChange={(code) => setCode(code)} mt={4}>
@@ -107,22 +103,33 @@ export default function PhoneAuth() {
 
         <Flex direction={{ base: "row" }} justify="space-between">
           {codeSent ? (
-            <Button
-              isLoading={verifyingCode}
-              mt="4"
-              w="full"
-              onClick={loginWithPhone}
-              colorScheme={"whatsapp"}
-            >
-              Verify Code
-            </Button>
+            <>
+              <Button
+                isLoading={verifyingCode}
+                mt="4"
+                w="48%"
+                onClick={loginWithPhone}
+                colorScheme={"whatsapp"}
+              >
+                Verify Code
+              </Button>
+              <Button
+                isLoading={verifyingCode || sendingCode}
+                mt="4"
+                w="48%"
+                onClick={sendCode}
+                colorScheme={"yellow"}
+              >
+                Resend
+              </Button>
+            </>
           ) : (
             <Button
               isLoading={sendingCode}
               colorScheme={"whatsapp"}
               mt="4"
               w="full"
-              onClick={onSignInSubmit}
+              onClick={sendCode}
             >
               Send Code
             </Button>

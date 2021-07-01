@@ -1,9 +1,8 @@
 import React from "react";
 
-import { Flex, Heading, Image, Stack, Text, Box } from "@chakra-ui/react";
+import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 
 import { Container } from "@containers";
-import lady_working from "@images/online_exam.jpg";
 
 export default function HomeHero() {
   return (
@@ -12,29 +11,23 @@ export default function HomeHero() {
         direction={{ base: "column", lg: "row" }}
         align={"center"}
         justify={"center"}
-        minH={"calc(100vh - 60px)"}
+        py={10}
       >
         <Stack w={"full"}>
-          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+          <Heading fontSize={{ base: "xl", md: "4xl", lg: "5xl" }}>
             <Text as={"span"} position={"relative"}>
-              Prepare for your scholership exam
+              Find a job in Italy
             </Text>
             <br />{" "}
             <Text color={"blue.400"} as={"span"}>
-              in seconds
+              In seconds
             </Text>{" "}
           </Heading>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            Write hight quality exam target model questions papers online and
-            practise for the exam. Very affordable and 100% results gurenteed.
+          <Text fontSize={{ base: "sm", lg: "lg" }} color={"gray.500"}>
+            A website that is dedicated for <Text as="mark">Sri Lankanks</Text>{" "}
+            who reside in Italy share infomation about available jobs.
           </Text>
-          {/* <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-            <Button colorScheme={"teal"}>Create Project</Button>
-          </Stack> */}
         </Stack>
-        <Box rounded={"lg"} width={"full"} overflow={"hidden"}>
-          <Image alt={"Login Image"} objectFit={"cover"} src={lady_working} />
-        </Box>
       </Flex>
     </Container>
   );
