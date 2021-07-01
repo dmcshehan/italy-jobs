@@ -9,7 +9,9 @@ const WidthSidebar = ({ children }) => {
     <Container>
       <Stack direction={{ base: "row" }}>
         <Sidebar />
-        <Box py={4}>{children}</Box>
+        <Box py={4} w="full">
+          {children}
+        </Box>
       </Stack>
     </Container>
   );

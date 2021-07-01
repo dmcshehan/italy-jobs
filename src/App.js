@@ -7,7 +7,15 @@ import theme from "./theme";
 import "@fontsource/work-sans";
 import "@fontsource/inter";
 
-import { Home, Profile, Login, Signup, AddListing, NotFound } from "@pages";
+import {
+  Home,
+  Profile,
+  Login,
+  Signup,
+  AddListing,
+  MyListings,
+  NotFound,
+} from "@pages";
 
 function App() {
   return (
@@ -20,6 +28,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/add-listing" component={AddListing} />
+            <Route exact path="/my-listings" component={MyListings} />
             <Route path="/not_found" component={NotFound} />
           </Switch>
         </div>

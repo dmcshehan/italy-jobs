@@ -2,13 +2,13 @@ import React from "react";
 import { userIsAuthenticated } from "@hoc";
 import { Layout, WithSidebar } from "@containers";
 
-import Form from "./Form/";
+import AddListingForm from "./AddListingForm";
 
 const AddListing = () => {
   return (
     <Layout>
       <WithSidebar>
-        <Form />
+        <AddListingForm />
       </WithSidebar>
     </Layout>
   );

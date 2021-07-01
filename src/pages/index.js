@@ -4,3 +4,4 @@ export { default as Signup } from "./Signup";
 export { default as Profile } from "./Profile";
 export { default as NotFound } from "./NotFound/";
 export { default as AddListing } from "./AddListing/";
+export { default as MyListings } from "./MyListings/";

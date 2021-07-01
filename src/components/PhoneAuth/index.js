@@ -10,11 +10,10 @@ import {
   NumberInput,
   NumberInputField,
 } from "@chakra-ui/react";
-import { PhoneButton } from "@components";
 
 import { useErrorToast } from "@hooks";
 
-export default function PhoneAuth({ onButtonClick, insUse }) {
+export default function PhoneAuth() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [codeSent, setCodeSent] = useState(false);
   const [code, setCode] = useState("");
@@ -32,18 +31,18 @@ export default function PhoneAuth({ onButtonClick, insUse }) {
       {
         size: "invisible",
         callback: function (response) {
-          console.log("recature resolved");
           onSignInSubmit();
         },
       }
     );
-  });
+  }, []);
 
   const onSignInSubmit = (event) => {
     event.preventDefault();
     setSendingCode(true);
 
     const appVerifier = window.recaptchaVerifier;
+
     firebase
       .auth()
       .signInWithPhoneNumber(phoneNumber, appVerifier)
@@ -77,10 +76,6 @@ export default function PhoneAuth({ onButtonClick, insUse }) {
       });
   };
 
-  const togglePhoneLogin = () => {
-    onButtonClick();
-  };
-
   const onNumberChange = (phone) => {
     setPhoneNumber(`+${phone}`);
   };
@@ -89,68 +84,51 @@ export default function PhoneAuth({ onButtonClick, insUse }) {
     <div>
       <div id="recaptcha_container"></div>
       {/* if phone mobule is not in use show the phone button */}
-      {!insUse ? (
-        <PhoneButton onClick={togglePhoneLogin}>Phone</PhoneButton>
-      ) : (
-        <Box rounded={"lg"} mb={4}>
-          <PhoneInput
-            style={{
-              width: "100%",
-            }}
-            onlyCountries={["lk", "it"]}
-            country={"it"}
-            value={phoneNumber}
-            onChange={onNumberChange}
-            inputStyle={{
-              width: "100%",
-            }}
-          />
 
-          {codeSent && (
-            <NumberInput onChange={(code) => setCode(code)} mt={4}>
-              <NumberInputField placeholder="Enter the code you received" />
-            </NumberInput>
-          )}
+      <Box rounded={"lg"} mb={4}>
+        <PhoneInput
+          style={{
+            width: "100%",
+          }}
+          onlyCountries={["lk", "it"]}
+          country={"it"}
+          value={phoneNumber}
+          onChange={onNumberChange}
+          inputStyle={{
+            width: "100%",
+          }}
+        />
 
-          <Flex direction={{ base: "row" }} justify="space-between">
-            {codeSent ? (
-              <Button
-                isLoading={verifyingCode}
-                size="sm"
-                mt="4"
-                w="48%"
-                onClick={loginWithPhone}
-                variant={"outline"}
-                colorScheme={"whatsapp"}
-              >
-                Verify Code
-              </Button>
-            ) : (
-              <Button
-                isLoading={sendingCode}
-                colorScheme={"whatsapp"}
-                variant={"outline"}
-                size="sm"
-                mt="4"
-                w="48%"
-                onClick={onSignInSubmit}
-              >
-                Send Code
-              </Button>
-            )}
+        {codeSent && (
+          <NumberInput onChange={(code) => setCode(code)} mt={4}>
+            <NumberInputField placeholder="Enter the code you received" />
+          </NumberInput>
+        )}
+
+        <Flex direction={{ base: "row" }} justify="space-between">
+          {codeSent ? (
             <Button
-              colorScheme={"red"}
-              variant={"outline"}
-              size="sm"
+              isLoading={verifyingCode}
               mt="4"
-              w="45%"
-              onClick={togglePhoneLogin}
+              w="full"
+              onClick={loginWithPhone}
+              colorScheme={"whatsapp"}
             >
-              Cancel
+              Verify Code
             </Button>
-          </Flex>
-        </Box>
-      )}
+          ) : (
+            <Button
+              isLoading={sendingCode}
+              colorScheme={"whatsapp"}
+              mt="4"
+              w="full"
+              onClick={onSignInSubmit}
+            >
+              Send Code
+            </Button>
+          )}
+        </Flex>
+      </Box>
     </div>
   );
 }

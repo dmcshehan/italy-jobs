@@ -1,1 +1,1 @@
-export { default as ListingCategories } from "./listingCategories";
+export { default as listingCollections } from "./listingCollections";

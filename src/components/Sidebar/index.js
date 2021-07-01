@@ -33,6 +33,7 @@ export default function Sidebar() {
         <VStack align="flex-start">
           <MenuLink to="/profile">Your Profile</MenuLink>
           <MenuLink to="/add-listing">Add Listing</MenuLink>
+          <MenuLink to="/my-listings">My Listing</MenuLink>
         </VStack>
       </Box>
     </Box>

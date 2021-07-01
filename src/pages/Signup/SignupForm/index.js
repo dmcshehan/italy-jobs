@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Stack, Box, Flex, Heading, Text, Link } from "@chakra-ui/react";
 
 import { Container } from "@containers";
-import { AuthModule } from "@components";
+import { PhoneAuth } from "@components";
 
 export default function SignupForm() {
   return (
@@ -16,7 +16,7 @@ export default function SignupForm() {
           </Stack>
           <Box rounded={"lg"} border="1px" borderColor="gray.300" p={8}>
             <Stack spacing={4}>
-              <AuthModule />
+              <PhoneAuth />
 
               <Text fontSize={"sm"} color={"gray.600"} textAlign="center">
                 Already have an account?{" "}
