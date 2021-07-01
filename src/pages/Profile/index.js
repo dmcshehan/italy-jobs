@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <Layout>
       <WithSidebar>
-        <h1>Hello</h1>
+        <h1>Profile</h1>
       </WithSidebar>
     </Layout>
   );

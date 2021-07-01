@@ -1,5 +1,17 @@
 import React from "react";
+import { userIsAuthenticated } from "@hoc";
+import { Layout, WithSidebar } from "@containers";
 
-export default function AddListing() {
-  return <div>Add Listing</div>;
-}
+import Form from "./Form/";
+
+const AddListing = () => {
+  return (
+    <Layout>
+      <WithSidebar>
+        <Form />
+      </WithSidebar>
+    </Layout>
+  );
+};
+
+export default userIsAuthenticated(AddListing);

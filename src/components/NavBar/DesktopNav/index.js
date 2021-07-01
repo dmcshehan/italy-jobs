@@ -11,7 +11,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuGroup,
   Avatar,
   Link,
 } from "@chakra-ui/react";
@@ -21,8 +20,6 @@ import { FaCaretDown } from "react-icons/fa";
 export default function DesktopNav() {
   const auth = useSelector((state) => state.firebase.auth);
   const firebase = useFirebase();
-
-  console.log(auth.photoURL);
 
   return (
     <Box w="100%">

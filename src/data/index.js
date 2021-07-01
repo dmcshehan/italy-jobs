@@ -1,1 +1,1 @@
-export * from "./question/";
+export { default as ListingCategories } from "./listingCategories";
