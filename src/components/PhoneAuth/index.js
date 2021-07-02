@@ -75,6 +75,10 @@ export default function PhoneAuth() {
     setPhoneNumber(`+${phone}`);
   };
 
+  const onCancel = () => {
+    setCodeSent(false);
+  };
+
   return (
     <div>
       {/* if phone mobule is not in use show the phone button */}
@@ -123,6 +127,9 @@ export default function PhoneAuth() {
               colorScheme={"yellow"}
             >
               Resend
+            </Button>
+            <Button w="full" onClick={onCancel} colorScheme={"red"} mt={4}>
+              Cancel
             </Button>
           </>
         ) : (

@@ -4,8 +4,7 @@ import { Flex, Box } from "@chakra-ui/react";
 import { Logo } from "@components";
 import { Container } from "@containers";
 
-import DesktopNav from "./DesktopNav/";
-import MobileNav from "./MobileNav/";
+import NavMenu from "./NavMenu";
 
 import Hamburger from "./Hamburger/";
 
@@ -22,12 +21,11 @@ export default function NavBar() {
         <Container>
           <Flex justify="space-between" align={"center"} py={2} minH={"60px"}>
             <Logo />
-            <DesktopNav />
             <Hamburger menuOpen={menuOpen} onClick={toggleMenu} />
           </Flex>
         </Container>
       </Box>
-      {menuOpen && <MobileNav closeMenu={toggleMenu} />}
+      {menuOpen && <NavMenu closeMenu={toggleMenu} />}
     </>
   );
 }

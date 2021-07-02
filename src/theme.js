@@ -19,6 +19,26 @@ const config = {
         size: "sm",
       },
     },
+    Input: {
+      defaultProps: {
+        size: "sm",
+      },
+    },
+    Textarea: {
+      defaultProps: {
+        size: "sm",
+      },
+    },
+    Select: {
+      defaultProps: {
+        size: "sm",
+      },
+    },
+    FormLabel: {
+      defaultProps: {
+        fontWeight: "bold",
+      },
+    },
     NumberInput: {
       defaultProps: {
         size: "sm",

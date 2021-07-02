@@ -24,7 +24,7 @@ export default function MobileNav({ closeMenu }) {
       py={"10px"}
     >
       <Container>
-        <Box my={2} display={{ base: "block", lg: "none" }}>
+        <Box my={2}>
           <VStack align="flex-start">
             {!isEmpty(auth) ? (
               <>

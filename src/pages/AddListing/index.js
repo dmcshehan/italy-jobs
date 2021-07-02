@@ -4,6 +4,8 @@ import { Layout, WithSidebar } from "@containers";
 
 import AddListingForm from "./AddListingForm";
 
+import cities from "@data/istat-cities.json";
+
 const AddListing = () => {
   return (
     <Layout>
