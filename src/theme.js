@@ -5,13 +5,23 @@ const config = {
   initialColorMode: "light",
   useSystemColorMode: false,
   fonts: {
-    heading: "Work Sans",
-    body: "Inter",
+    heading: "Rubik",
+    body: "Rubik",
   },
   components: {
     Link: {
       baseStyle: {
         color: "blue.400",
+      },
+    },
+    Button: {
+      defaultProps: {
+        size: "sm",
+      },
+    },
+    NumberInput: {
+      defaultProps: {
+        size: "sm",
       },
     },
   },

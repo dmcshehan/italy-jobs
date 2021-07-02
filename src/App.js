@@ -6,6 +6,7 @@ import theme from "./theme";
 
 import "@fontsource/work-sans";
 import "@fontsource/inter";
+import "@fontsource/rubik";
 
 import {
   Home,

@@ -17,7 +17,6 @@ import { rrfProps } from "@fire";
 import { AuthIsLoaded } from "@hoc";
 
 import "normalize.css";
-import "../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./styles/index.css";
 import "react-phone-input-2/lib/style.css";
 

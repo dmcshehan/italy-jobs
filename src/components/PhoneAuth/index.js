@@ -7,6 +7,7 @@ import {
   Button,
   Box,
   Flex,
+  Text,
   NumberInput,
   NumberInputField,
 } from "@chakra-ui/react";
@@ -101,40 +102,40 @@ export default function PhoneAuth() {
           </NumberInput>
         )}
 
-        <Flex direction={{ base: "row" }} justify="space-between">
-          {codeSent ? (
-            <>
-              <Button
-                isLoading={verifyingCode}
-                mt="4"
-                w="48%"
-                onClick={loginWithPhone}
-                colorScheme={"whatsapp"}
-              >
-                Verify Code
-              </Button>
-              <Button
-                isLoading={verifyingCode || sendingCode}
-                mt="4"
-                w="48%"
-                onClick={sendCode}
-                colorScheme={"yellow"}
-              >
-                Resend
-              </Button>
-            </>
-          ) : (
+        {codeSent ? (
+          <>
             <Button
-              isLoading={sendingCode}
-              colorScheme={"whatsapp"}
+              isLoading={verifyingCode}
               mt="4"
               w="full"
-              onClick={sendCode}
+              onClick={loginWithPhone}
+              colorScheme={"whatsapp"}
             >
-              Send Code
+              Verify Code
             </Button>
-          )}
-        </Flex>
+            <Text fontSize="xs" my={"10px"}>
+              Didn't get the code?
+            </Text>
+            <Button
+              isLoading={verifyingCode || sendingCode}
+              w="full"
+              onClick={sendCode}
+              colorScheme={"yellow"}
+            >
+              Resend
+            </Button>
+          </>
+        ) : (
+          <Button
+            isLoading={sendingCode}
+            colorScheme={"whatsapp"}
+            mt="4"
+            w="full"
+            onClick={sendCode}
+          >
+            Send Code
+          </Button>
+        )}
       </Box>
     </div>
   );

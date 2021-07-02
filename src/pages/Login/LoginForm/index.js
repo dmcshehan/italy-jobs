@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Flex, Heading } from "@chakra-ui/react";
+import { Stack, Flex, Heading, Box } from "@chakra-ui/react";
 
 import { PhoneAuth } from "@components";
 
@@ -10,8 +10,16 @@ export default function LoginForm() {
         <Heading fontSize={"xl"} textAlign="center">
           Login to your account
         </Heading>
-
-        <PhoneAuth />
+        <Box
+          border="1px"
+          minW="300px"
+          py={10}
+          px={5}
+          rounded="lg"
+          borderColor="gray.300"
+        >
+          <PhoneAuth />
+        </Box>
       </Stack>
     </Flex>
   );
